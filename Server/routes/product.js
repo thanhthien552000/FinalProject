@@ -22,7 +22,7 @@ const {
 productRouter.post("/", create);
 productRouter.get("/total", productsCount);
 
-productRouter.get("/:count", listAll); // products/100
+productRouter.get("/", listAll); // products/100
 productRouter.delete("/:slug", remove);
 productRouter.get("/:slug", read);
 productRouter.put("/:slug", update);
