@@ -22,11 +22,12 @@ const Header = () => {
   };
 
   return (
-    <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
-      <Item key="home" icon={<AppstoreOutlined />}>
-        <Link to="/">Home</Link>
-      </Item>
-    </Menu>
+    // <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
+    //   <Item key="home" icon={<AppstoreOutlined />}>
+    //     <Link to="/">Home</Link>
+    //   </Item>
+    // </Menu>
+    <div>Header</div>
   );
 };
 
