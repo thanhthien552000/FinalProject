@@ -2,6 +2,7 @@ import "./App.css";
 import "./Content";
 import React, { useEffect, lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -15,6 +16,7 @@ const App = () => {
   return (
     <>
       <Header />
+      <ToastContainer />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
