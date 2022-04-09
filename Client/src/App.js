@@ -3,15 +3,16 @@ import "./Content";
 import React, { useEffect, lazy, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-
 import "react-toastify/dist/ReactToastify.css";
-
-//
+// import { Provider } from "react-redux";
+// import { createStore } from "redux";
+// import { composeWithDevTools } from "redux-devtools-extension";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Home from "./pages/Home";
 import Header from "./components/nav/Header";
-// import { useState } from "react";
+import RegisterComplete from "./pages/auth/RegisterComplete";
+
 const App = () => {
   return (
     <>
@@ -21,6 +22,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <Route exact path="/register/complete" component={RegisterComplete} />
       </Switch>
     </>
   );

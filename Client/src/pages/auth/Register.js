@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { auth } from "../../firebase";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 // import { useSelector } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 const Register = () => {
@@ -44,7 +44,6 @@ const Register = () => {
         <div className="row">
           <div className="col-md-12 offset-md-4">
             <h4>Register</h4>
-
             {registerForm()}
           </div>
         </div>
