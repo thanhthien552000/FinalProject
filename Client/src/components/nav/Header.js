@@ -32,7 +32,7 @@ const Header = () => {
       type: "LOGOUT",
       payload: null,
     });
-    history.pushState("/login");
+    history.push("/login");
   };
   return (
     <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">

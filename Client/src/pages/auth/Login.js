@@ -1,15 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { auth, googleAuthProvider } from "../../firebase";
 import { toast } from "react-toastify";
 import { Button } from "antd";
 import { MailOutlined, GoogleOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const { user } = useSelector((state) => ({ ...state }));
+
+  useEffect(() => {
+    let intended = history.location.state;
+    if (intended) {
+      return;
+    } else {
+      if (user && user.token) history.push("/");
+    }
+  }, [user, history]);
 
   let dispatch = useDispatch();
 
@@ -121,6 +133,9 @@ const Login = ({ history }) => {
             >
               Login with Google
             </Button>
+            <Link to="/forgot/password" className="float-right text-danger">
+              Forgot Password
+            </Link>
           </div>
         </div>
       </div>
