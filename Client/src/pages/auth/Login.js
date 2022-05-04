@@ -59,33 +59,7 @@ const Login = ({ history }) => {
       setLoading(false);
     }
   };
-  const googleLogin = async () => {
-    auth
-      .signInWithPopup(googleAuthProvider)
-      .then(async (result) => {
-        const { user } = result;
-        const idTokenResult = await user.getIdTokenResult();
-        createOrUpdateUser(idTokenResult.token)
-          .then((res) => {
-            dispatch({
-              type: "LOGGED_IN_USER",
-              payload: {
-                name: res.data.name,
-                email: res.data.email,
-                token: idTokenResult.token,
-                role: res.data.role,
-                _id: res.data._id,
-              },
-            });
-          })
-          .catch((err) => console.log(err));
-        // history.push("/");
-      })
-      .catch((err) => {
-        console.log(err);
-        toast.error(err.message);
-      });
-  };
+
   const loginForm = () => (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
