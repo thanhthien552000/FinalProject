@@ -89,5 +89,5 @@ const RegisterComplete = ({ history }) => {
     </div>
   );
 };
-
+ 
 export default RegisterComplete;
