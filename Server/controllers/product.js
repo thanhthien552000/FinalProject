@@ -60,36 +60,15 @@ exports.update = async (req, res) => {
     res.json(updated);
   } catch (err) {
     console.log("PRODUCT UPDATE ERROR ----> ", err);
-    // return res.status(400).send("Product update failed");
+
     res.status(400).json({
       err: err.message,
     });
   }
 };
 
-// WITHOUT PAGINATION
-// exports.list = async (req, res) => {
-//   try {
-//     // createdAt/updatedAt, desc/asc, 3
-//     const { sort, order, limit } = req.body;
-//     const products = await Product.find({})
-//       .populate("category")
-//       .populate("subs")
-//       .sort([[sort, order]])
-//       .limit(limit)
-//       .exec();
-
-//     res.json(products);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
-
-// WITH PAGINATION
 exports.list = async (req, res) => {
-  // console.table(req.body);
   try {
-    // createdAt/updatedAt, desc/asc, 3
     const { sort, order, page } = req.body;
     const currentPage = page || 1;
     const perPage = 3; // 3
